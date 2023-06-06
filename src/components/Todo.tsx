@@ -20,13 +20,6 @@ function Todo({
       task,
       checked,
     });
-    setTimeout(() => {
-      removeTodo({
-        id,
-        task,
-        checked,
-      });
-    }, 500);
   };
 
   const handleDelete = () => {
