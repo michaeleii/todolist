@@ -14,6 +14,7 @@ interface TodoActions {
   addTodo: (todo: Todo) => void;
   removeTodo: (todo: Todo) => void;
   toggleTodo: (todo: Todo) => void;
+  editTodo: (todo: Todo) => void;
 }
 
 const useStore = create<TodoListState & TodoActions>((set) => ({
@@ -27,6 +28,12 @@ const useStore = create<TodoListState & TodoActions>((set) => ({
     set((state) => ({
       todos: state.todos.map((t) =>
         t.id === todo.id ? { ...t, checked: !t.checked } : t
+      ),
+    })),
+  editTodo: (todo) =>
+    set((state) => ({
+      todos: state.todos.map((t) =>
+        t.id === todo.id ? { ...t, task: todo.task } : t
       ),
     })),
 }));
