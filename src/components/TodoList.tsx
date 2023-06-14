@@ -14,7 +14,7 @@ function TodoList() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
           >
-            <Todo {...todo} />
+            <Todo {...todo} key={todo.id} />
           </motion.div>
         ))}
       </AnimatePresence>
